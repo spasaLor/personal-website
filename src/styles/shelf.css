@@ -1,0 +1,17 @@
+.shelf{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap:5px;
+    position: relative;
+    flex: 1;
+    padding: 1rem;
+    padding-bottom: 1px;
+    background: #222;
+    border-top: 3px solid #555;
+    border-bottom: 3px solid #555;
+    width: 425px;
+}
+.shelf .tape:first-child, .shelf .tape:nth-child(7){
+    transform: rotateZ(10deg);
+}

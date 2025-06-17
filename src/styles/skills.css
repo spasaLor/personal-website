@@ -1,0 +1,89 @@
+#skills{
+    height: 100vh;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.skills-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    margin-top: -3rem;
+
+}
+.frontend,.backend,.miscellaneous{
+    height: 400px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom, #331d0e, #1b0d04);
+    border: 1px solid #111;
+    border-radius: 4px;
+    box-shadow: 
+    5px 5px 15px rgba(0,0,0,0.4),
+    inset 0 0 10px rgba(255,255,255,0.1);
+    transform: rotateX(10deg);
+    gap: 10px;
+}
+
+.skills-cassette{
+    width: 150px;
+    height: 30px;
+    background: linear-gradient(to bottom, #111, #222222);
+    border: 2px solid #000;
+    border-radius: 6px;
+    transform: rotateX(20deg);
+    box-shadow:
+        3px 3px 5px rgba(0,0,0,0.5),
+        inset 0 0 5px rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+}
+.skills-cassette:hover {
+  transform: rotateX(10deg) rotateY(-2deg) scale(1.05);
+}
+
+.skills-cassette p {
+  width: 80%;
+  text-align: center;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  color: #111;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 255, 255, 0.85) 2px,
+    rgba(240, 240, 240, 0.85) 4px
+  );
+  border: 1px solid #000;
+  box-shadow: inset 0 0 2px rgba(0,0,0,0.5);
+  font-family: monospace;
+  user-select: none;
+}
+
+.drawer-label {
+  background: #ccc;
+  color: #111;
+  font-size: 0.9rem;
+  font-family: monospace;
+  padding: 4px 8px;
+  margin-bottom: 12px;
+  border: 1px solid #444;
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.4);
+  transform: rotateX(5deg);
+}
+
+#skills h1{
+    font-size: 2rem;
+    filter: blur(1px);
+    text-shadow:1px 0 red,-1px 0 cyan;
+    font-family: 'VCR OSD Mono',monospace;
+}

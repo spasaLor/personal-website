@@ -1,0 +1,262 @@
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+.vcr-container {
+  width: 640px;
+  height: 480px;
+  position: relative;
+  background: black;
+  overflow: hidden;
+  box-shadow: 0 0 20px #111111;
+  z-index: 0;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  filter: contrast(1.2) brightness(1.1);
+  cursor: pointer;
+}
+
+.screen > div {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  mix-blend-mode: multiply;
+}
+
+.snow {
+  background-image: url('https://i.gifer.com/B798.gif'); 
+  background-size: cover;
+  opacity: 0.1;
+  animation: snowMove 1s linear infinite;
+}
+
+@keyframes snowMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+.wobble {
+  animation: wobbleY 250ms infinite ;
+}
+
+@keyframes wobbleY {
+  0%   { transform: translateY(1px) }
+  100% { transform: translateY(0px) }
+}
+.vignette {
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png') no-repeat center;
+  background-size: cover;
+  z-index: 10;
+  filter: drop-shadow(0 0 10px rgba(0,255,255,0.3));
+}
+.content {
+  z-index: -1;
+  position: relative;
+}
+.content img{
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.vcr{
+  background: url(https://i.pinimg.com/originals/fe/7a/ae/fe7aaefe62ce173b724b99280d1c8708.gif);
+  background-size: cover;
+  z-index: 9;
+  mix-blend-mode: multiply;
+  opacity: 0.1;
+}
+
+.vcr-reader{
+  width: 640px;
+  height: 100px;
+  background: linear-gradient(to top, rgb(39, 38, 38) 0%,rgb(0,0,0) 50%);
+  position: relative;
+}
+
+.vcr-reader::after,.vcr-reader::before{
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 30px;
+  height: 10px;
+  background: #171717;
+  border-radius: 3px;
+  box-shadow: inset 0 0 3px #000, 0 1px 2px rgba(255,255,255,0.1);
+}
+.vcr-reader::after{
+  right: 20px;
+}
+.vcr-reader::before{
+  left: 20px;
+}
+.enter{
+  position: absolute;
+  top:20%;
+  left: 50%;
+  background-color: #1d1d1d;
+  width: 250px;
+  height: 60px;
+  transform: translate(-50%,0);
+  border:1px solid #555;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  text-transform: uppercase;
+  user-select: none;
+  font-weight: 600;
+  box-shadow: inset 0px -3px 20px black;
+}
+#vhs{
+  border: 1px solid #555;
+  color:#555;
+}
+
+.eject{
+  position: absolute;
+  top:40%;
+  right: 10%;
+}
+
+#left{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top:0;
+  right: 0;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  gap: 1rem;
+  margin-right: 5px;
+  font-weight: 600;
+}
+#bottom{
+  display: flex;
+}
+
+#bottom .button{
+  border-radius: 0px;
+  height: 20px;
+}
+
+#power .button{
+  margin: 0 auto;
+}
+
+.button{
+  width: 50px;
+  height: 15px;
+  background-color: #1d1d1d;
+  border-radius: 50px;
+  border: 1px solid black;
+  box-shadow: -5px 0px 5px black;
+}
+
+.button:hover{
+  cursor: pointer;
+  background-color: #3a3a3a;
+}
+
+#default,#about,#contacts,#this{
+  color: white;
+  background-color: blue;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-size: 1.8rem;
+  font-family: 'VCR OSD Mono',sans-serif;
+}
+
+#default p{
+  position: absolute;
+  top: 40%;
+  right: 40%;
+}
+
+#about,#contacts,#this{
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+}
+
+.vcr-jacks {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  display: flex;
+  gap: 6px;
+  background-color: #000;
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+
+.jack {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #222;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.6), 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.jack.red {
+  background-color: #c00;
+}
+
+.jack.white {
+  background-color: #ddd;
+}
+
+.jack.yellow {
+  background-color: #fc0;
+}
+
+@media (max-width:1000px) {
+  .enter{
+    top:50%;
+    background-color: #9d9a9a;
+    box-shadow: unset;
+    border: 3px solid black;
+    box-shadow: inset 0px -3px 10px black;
+    color: black;
+
+  }
+
+  .content{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+  }
+
+  .scanlines{
+    height: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  #about,#contacts,#this{
+    font-size: 1rem;
+  }
+  
+}

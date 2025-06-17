@@ -1,0 +1,36 @@
+footer {
+  padding: 2rem;
+  color: #ccc;
+  font-family: monospace;
+  text-align: center;
+  font-size: 0.85rem;
+  border-top: 2px solid #292828;
+  position: relative;
+}
+
+.footer-labels a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: black;
+  padding: 4px 8px;
+  border: 1px solid #555;
+  font-size: 1rem;
+  background: repeating-linear-gradient(
+    45deg,
+    #d6d6d6,
+    #d6d6d6 4px,
+    #c2c2c2 4px,
+    #c2c2c2 8px
+  );
+  display: inline-block;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease-in;
+}
+
+.footer-labels a:hover{
+    background: black;
+    color: white;
+    text-shadow:1px 0 red,-1px 0 cyan;
+    text-transform: uppercase;
+    cursor: pointer;
+}
