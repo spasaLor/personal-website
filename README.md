@@ -1,12 +1,43 @@
-# React + Vite
+# Retro Portfolio — VHS-Themed Personal Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A unique, nostalgic web portfolio styled like a vintage CRT TV and VCR system. Built using modern React and CSS techniques to mimic the experience of browsing tapes, inserting them into a VHS reader, and displaying content on a retro screen.
 
-Currently, two official plugins are available:
+> ⚠️ Best viewed on desktop for full effect.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🎬 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-  **Interactive CRT TV and VCR Interface**
+  - Drag-and-drop tapes into the reader to "play" content
+  - VHS-style screen with snow, scanlines, and wobble effects
+
+-  **Tapes as Projects**
+  - Each project is represented as a stylized tape with an image that plays on the screen
+  - Responsive interactions for drag, hover, and insert states
+
+-  **About, Resume, and Contact Tapes**
+  - Represented just like project tapes, keeping UX consistent
+  - Compact, legible information styled for 640x480 VHS resolution
+
+-  **Skills Section**
+  - Designed like a drawer full of mini audio cassettes
+  - Divided into Frontend, Backend, and Miscellaneous categories
+  - Uses 3D CSS transforms for dimensionality
+
+-  **Hero Section**
+  - Fullscreen "pause screen" inspired hero with blinking prompt
+  - Custom font and VHS static gradient for retro realism
+
+- 🔌 **Footer with RCA Ports & Thematic CTA**
+  - Retro-styled contact links
+  - Final "Insert next tape →" message
+
+---
+
+## 🛠️ Tech Stack
+
+- **React**
+- **React DnD** for drag animations
+- **CSS Modules** or global styling
+- **Deployed on Vercel**
