@@ -3,49 +3,49 @@ export const tapes = [
         id:0,
         title:"CV Builder",
         type:"img",
-        img:"src/assets/1.png",
+        img:"/assets/1.png",
         link:"https://cv-builder-7is4-ek1g4zwc9-spasalors-projects.vercel.app/"
     },
     {
         id:1,
         title:"E-commerce",
         type:"img",
-        img:"/src/assets/2.png",
+        img:"/assets/2.png",
         link:"https://e-commerce-project-pied-one.vercel.app/"
     },
     {
         id:2,
         title:"WorldWide Recipes",
         type:"img",
-        img:"/src/assets/3.png",
+        img:"/assets/3.png",
         link:"https://ww-recipes.onrender.com/"
     },
     {
         id:3,
         title:"Movieboxd",
         type:"img",
-        img:"/src/assets/4.png",
+        img:"/assets/4.png",
         link:"https://movieboxd-m4nu.onrender.com/"
     },
     {
         id:4,
         title:"UppFiles",
         type:"img",
-        img:"/src/assets/5.png",
+        img:"/assets/5.png",
         link:"https://uppfiles.onrender.com/"
     },
     {
         id:5,
         title:"MyBlog",
         type:"img",
-        img:"/src/assets/6.png",
+        img:"/assets/6.png",
         link:"https://my-blog-rt9u.onrender.com/"
     },
     {
         id:6,
         title:"PokeFind",
         type:"img",
-        img:"/src/assets/7.png",
+        img:"/assets/7.png",
         link:"https://pokefind-6w7o.onrender.com/"
     },
     {
