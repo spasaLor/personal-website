@@ -50,7 +50,7 @@ function App() {
       <>
         <Hero handleClick={handleClick}/>
         <div id='main-container' ref={mainRef}>
-          <DndProvider backend={TouchBackend}>
+          <DndProvider backend={TouchBackend} options={{enableMouseEvents: true}}>
               <DndContext onDragEnd={handleDragEnd}> 
               {mobile ? <Mobile tape={selectedTape} resetTape={resetTape}/> :<Tv tape={selectedTape} resetTape={resetTape}/>}
                 <div className="shelves">
