@@ -8,6 +8,8 @@ import Footer from '../components/Footer.jsx';
 import './App.css'
 import {tapes} from "./tapes.jsx";
 import { useEffect, useRef, useState } from 'react';
+import { TouchBackend } from 'react-dnd-touch-backend';
+import { DndProvider } from 'react-dnd';
 
 function App() {
   const [selectedTape,setSelectedTape] = useState();
@@ -16,11 +18,11 @@ function App() {
   const mainRef = useRef();
 
   function useMediaQuery(query) {
-    const [isMobile,setisMobile] = useState(() => window.matchMedia(query).matches);
+    const [isMobile,setIsMobile] = useState(() => window.matchMedia(query).matches);
 
     useEffect(() => {
       const media = window.matchMedia(query);
-      const listener = () => setisMobile(media.matches);
+      const listener = () => setIsMobile(media.matches);
       media.addEventListener("change", listener);
       return () => media.removeEventListener("change", listener);
     }, [query]);
@@ -48,13 +50,16 @@ function App() {
       <>
         <Hero handleClick={handleClick}/>
         <div id='main-container' ref={mainRef}>
-          <DndContext onDragEnd={handleDragEnd}>
-            {mobile ? <Mobile tape={selectedTape} resetTape={resetTape}/> :<Tv tape={selectedTape} resetTape={resetTape}/>}
-              <div className="shelves">
-                  <Shelf tapes={projectTapes} active={selectedTape}/>
-                  <Shelf tapes={infoTapes} active={selectedTape}/>
-              </div>            
-          </DndContext>
+          <DndProvider backend={TouchBackend}>
+              <DndContext onDragEnd={handleDragEnd}> 
+              {mobile ? <Mobile tape={selectedTape} resetTape={resetTape}/> :<Tv tape={selectedTape} resetTape={resetTape}/>}
+                <div className="shelves">
+                    <Shelf tapes={projectTapes} active={selectedTape}/>
+                    <Shelf tapes={infoTapes} active={selectedTape}/>
+                </div>            
+            </DndContext>
+          </DndProvider>
+          
         </div>
         <Skills/>
         <Footer/>
