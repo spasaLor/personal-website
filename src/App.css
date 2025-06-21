@@ -24,9 +24,14 @@
     flex-direction: column;
     height: unset;
     background-color: unset;
+    padding: 0 1rem;
+  }
+  #root{
+    padding: 0;
   }
   .shelves{
     margin-left: 0;
+    width: 100%;
   }
   
 }

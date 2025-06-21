@@ -1,13 +1,24 @@
+import { useDrop } from "react-dnd";
 import "../src/styles/mobile.css";
-import { useDroppable } from "@dnd-kit/core";
 
-export default function Mobile({tape,resetTape}){
-    const {isOver,setNodeRef} = useDroppable({id:'droppable'});
-        const style = {color: isOver ? "green" : undefined};
-        const handleTvClick = ()=>{
-            if(tape)
-                window.open(tape.link,"_blank");
-        }
+export default function Mobile({tape,resetTape,setTape}){
+    const[{canDrop,isOver},drop]=useDrop(()=>({
+        accept:'TAPE',
+        collect: (monitor)=>({
+            canDrop:monitor.canDrop(),
+            isOver:monitor.isOver()
+        }),
+        drop:(item)=>{
+            setTape(item);
+        } 
+    }))
+
+    const style = {color: canDrop && isOver ? "green" : undefined};
+    
+    const handleTvClick = ()=>{
+        if(tape)
+            window.open(tape.link,"_blank");
+    }
 
     return(
         <>
@@ -18,7 +29,7 @@ export default function Mobile({tape,resetTape}){
                         { tape ?( tape.type === 'img' ? <img src={tape.img} alt="tape content"/> : <tape.content/>) : <div id="default"> <p >NO SIGNAL</p> </div>}
                     </div>
                 </div>
-                <div className="enter" ref={setNodeRef} style={style}>
+                <div className="enter" ref={drop} style={style}>
                     <p>CASSETTE PLAYER</p>
                 </div>
                 <div className="controls">

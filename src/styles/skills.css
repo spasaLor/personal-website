@@ -87,3 +87,18 @@
     text-shadow:1px 0 red,-1px 0 cyan;
     font-family: 'VCR OSD Mono',monospace;
 }
+
+@media (max-width:1000px) {
+  #skills{
+    height: auto;
+  }
+  .skills-container{
+    flex-direction: column;
+  }
+  .frontend,.backend,.miscellaneous{
+    transform: unset;
+  }
+  #skills h1{
+    margin-bottom: 4rem;
+  }
+}

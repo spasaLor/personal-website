@@ -1,9 +1,19 @@
+import { useDrop } from "react-dnd";
 import "../src/styles/tv.css";
-import { useDroppable } from "@dnd-kit/core";
 
-export default function Tv({tape,resetTape}){
-    const {isOver,setNodeRef} = useDroppable({id:'droppable'});
-    const style = {color: isOver ? "green" : undefined};
+export default function Tv({tape,resetTape,setTape}){
+    const[{canDrop,isOver}, drop]=useDrop(()=>({
+        accept:'TAPE',
+        drop:(item)=>{
+            setTape(item);
+        },
+        collect: (monitor)=>({
+            isOver:monitor.isOver(),
+            canDrop:monitor.canDrop(),
+        }),
+    }))
+
+    const style = {color: canDrop && isOver ? "green" : undefined};
     const handleTvClick = ()=>{
         if(tape)
             window.open(tape.link,"_blank");
@@ -24,7 +34,7 @@ export default function Tv({tape,resetTape}){
                 </div>
             </div>
             <div className="vcr-reader">
-                <div className="enter" ref={setNodeRef} style={style}>
+                <div className="enter" ref={drop} style={style}>
                      <p id="vhs" >VHS</p> 
                      <p>Enter Tape</p>
                 </div>

@@ -36,3 +36,12 @@
     transform: rotateX(5deg) rotateY(-10deg) scale(1.05);
     z-index: 20;
 }
+
+@media (max-width:1000px) {
+    .tape{
+        width: 40px;
+    }
+    .tape p{
+        height: 25px;
+    }
+}

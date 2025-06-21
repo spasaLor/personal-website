@@ -1,18 +1,24 @@
+import { useDrag } from "react-dnd";
 import "../src/styles/tape.css";
-import { useDraggable } from "@dnd-kit/core";
+import { useEffect } from "react";
+import { getEmptyImage } from "react-dnd-html5-backend";
 
 export default function Tape({data}){
-    const {attributes, listeners, setNodeRef, transform} = useDraggable({
-        id: data.id,
-        data:data,
-    });
-    const style = transform ? {
-        transform: `translate3d(${transform.x}px, ${transform.y}px, 0) rotate(-90deg)`,
-        zIndex:3,
-    } : undefined;
+    const [{isDragging},drag,preview]=useDrag(()=>({
+        type:'TAPE',
+        item:data,
+        collect:(monitor)=>({
+            isDragging:!!monitor.isDragging()
+        })        
+    }));
+
+    useEffect(() => {
+        preview(getEmptyImage(), { captureDraggingState: true });
+    }, [preview]);
+
 
     return(
-        <div className="tape" ref={setNodeRef} style={style} {...listeners} {...attributes}>
+        <div className="tape" ref={drag} style={isDragging ? {opacity:0}:undefined}>
             <p>{data.title}</p>
         </div>
     );
